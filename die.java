@@ -13,7 +13,7 @@ public class die {
         Random random = new Random();
         for (int i = 0; i <1000000; i++) {
             if (random.nextInt(6) + 1 == 6) wins++; else losses++;
-            sum += i;     
+            sum = i + 1;     
         }
 
         for (int j = 1; j <= wins; j++) {
@@ -29,12 +29,12 @@ public class die {
          }
         
         int total = wins - losses;
-        System.out.println("Wins with single dice: " + wins + ", losses with single: " + losses + " Your money total is: $" + total + " the mean is: " + sum/(float)list.size() + " the Standard Deviation is: " + std + "and the variance: " + variance);
+        System.out.println("Wins with single dice: " + wins + ", losses with single: " + losses + " Your money total is: $" + total + " the mean is: " + sum/(float)list.size() + " the Standard Deviation is: " + std + "and the variance: " + variance + "Space");
         int wins2 = 0;
         int losses2 = 0;
         for (int k = 0; k < 1000000; k++) {
             int num = 0;
-            sum2 += k;
+            sum2 = k;
             for (int a = 0; a < 24; a++) {
                 if(random.nextInt(6) + 1 == 6){num++;}
                 if (num == 6) {
