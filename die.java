@@ -18,14 +18,14 @@ public class die {
 
         for (int j = 1; j <= wins; j++) {
             list.add(wins);
-            /*sum += j;*/
+            
         }
 
          double mean = sum/(float)list.size();
          double std = Math.sqrt(mean);
          double variance = 0;
          for (int b = 0; b < wins; b++) {
-            variance += Math.pow(wins - mean, 2);
+            variance = Math.pow(wins - mean, 4);
          }
         
         int total = wins - losses;
@@ -53,7 +53,7 @@ public class die {
         double std2 = Math.sqrt(mean2);
         double variance2 = 0;
          for (int b = 0; b < wins; b++) {
-            variance2 += Math.pow(wins2 - mean2, 2);
+            variance2 = Math.pow(wins2 - mean2, 24);
          }
 
         int total2 = wins2 - losses2;
