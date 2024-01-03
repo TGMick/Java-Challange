@@ -7,16 +7,18 @@ public class die {
         int wins = 0;
         int losses = 0;
         int sum = 0;
-        ArrayList<Integer> list = new ArrayList<>();
+        int sum2= 0;
+        ArrayList<Integer> list = new ArrayList<Integer>();
 
         Random random = new Random();
         for (int i = 0; i <1000000; i++) {
-            if (random.nextInt(6) + 1 == 6) wins++; else losses++;     
+            if (random.nextInt(6) + 1 == 6) wins++; else losses++;
+            sum += i;     
         }
 
         for (int j = 1; j <= wins; j++) {
             list.add(wins);
-            sum += j;
+            /*sum += j;*/
         }
 
          double mean = sum/(float)list.size();
@@ -32,21 +34,22 @@ public class die {
         int losses2 = 0;
         for (int k = 0; k < 1000000; k++) {
             int num = 0;
+            sum2 += k;
             for (int a = 0; a < 24; a++) {
                 if(random.nextInt(6) + 1 == 6){num++;}
-                if (num > 1) {
+                if (num == 6) {
                     wins2++;
                     break;
                 }
-            } if (num < 2) losses2++;
+            } if (num < 6) losses2++;
         }
 
-        for (int a = 0; a <= wins2; a++) {
+        for (int b = 0; b <= wins2; b++) {
             list.add(wins2);
-            sum += a;
+            
         }
 
-        double mean2 = sum/(float)list.size();
+        double mean2 = sum2/(float)list.size();
         double std2 = Math.sqrt(mean2);
         double variance2 = 0;
          for (int b = 0; b < wins; b++) {
@@ -54,6 +57,6 @@ public class die {
          }
 
         int total2 = wins2 - losses2;
-        System.out.println("Wins with 2 dice: " + wins2 + ", losses with 2 dice: " + losses2 + " Your money total is: $" + total2 + " the mean is: " + sum/(float)list.size() + " the Standard Deviation is: " + std2 + "and the variance: " + variance2);
+        System.out.println("Wins with 2 dice: " + wins2 + ", losses with 2 dice: " + losses2 + " Your money total is: $" + total2 + " the mean is: " + sum2/(float)list.size() + " the Standard Deviation is: " + std2 + "and the variance: " + variance2);
     }    
 }
